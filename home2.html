@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,6 +76,7 @@
             height: auto;
             margin-bottom: 20px;
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .product h2 {
@@ -93,8 +95,24 @@
             font-size: 20px;
             font-weight: bold;
         }
+
+        button {
+            background-color: #e44d26;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -113,7 +131,8 @@
     <div class="container main">
         <div class="product">
             <!-- Placeholder image from Lorem Picsum -->
-            <img src="https://cdn.pixabay.com/photo/2016/12/09/11/33/smartphone-1894723_1280.jpg" alt="Sample Product">
+            <img src="https://cdn.pixabay.com/photo/2016/12/09/11/33/smartphone-1894723_1280.jpg"
+                alt="Sample Product">
             <h2>Sample Product</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel elit eu risus luctus.</p>
             <p>Characteristics:</p>
@@ -121,18 +140,19 @@
                 <li>Digital Item</li>
                 <li>Price: <span class="price">2 KWD</span></li>
             </ul>
-              <button onclick="redirectToTapPayments()">Buy Now</button>
-    <script>
-        function redirectToTapPayments() {
-            // Replace the following URL with the Tap Payments checkout URL
-            var tapPaymentsUrl = 'checkout.html';
+            <button onclick="redirectToTapPayments()">Buy Now</button>
+            <script>
+                function redirectToTapPayments() {
+                    // Replace the following URL with the Tap Payments checkout URL
+                    var tapPaymentsUrl = 'checkout.html';
 
-            // Redirect the user to Tap Payments checkout
-            window.location.href = tapPaymentsUrl;
-        }
-    </script>
+                    // Redirect the user to Tap Payments checkout
+                    window.location.href = tapPaymentsUrl;
+                }
+            </script>
         </div>
     </div>
 
 </body>
+
 </html>
