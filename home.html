@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Shopping Cart</title>
+    <title>Full-Fledged Shopping Cart</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,13 +14,24 @@
             text-align: center;
         }
 
-        ul {
+        .product-list,
+        #cart {
             list-style: none;
             padding: 0;
         }
 
-        li {
+        .product-item,
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
             margin-bottom: 10px;
+        }
+
+        .cart-item {
+            font-weight: bold;
         }
 
         button {
@@ -36,23 +47,25 @@
         }
 
         #cart {
-            border-top: 1px solid #ccc;
+            border-top: 2px solid #333;
             padding-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Simple Shopping Cart</h1>
+    <h1>Full-Fledged Shopping Cart</h1>
 
     <h2>Product Listing</h2>
-    <ul id="product-list">
-        <li>
-            <span>Product 1 - $10.99</span>
+    <ul class="product-list" id="product-list">
+        <li class="product-item">
+            <span>Product 1</span>
+            <span>$10.99</span>
             <button onclick="addToCart('Product 1', 10.99)">Add to Cart</button>
         </li>
-        <li>
-            <span>Product 2 - $19.99</span>
+        <li class="product-item">
+            <span>Product 2</span>
+            <span>$19.99</span>
             <button onclick="addToCart('Product 2', 19.99)">Add to Cart</button>
         </li>
         <!-- Add more products as needed -->
@@ -64,9 +77,19 @@
     <script>
         function addToCart(productName, price) {
             var cart = document.getElementById('cart');
-            var listItem = document.createElement('li');
-            listItem.innerHTML = productName + ' - $' + price.toFixed(2);
-            cart.appendChild(listItem);
+            var cartItem = document.createElement('li');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <span>${productName}</span>
+                <span>$${price.toFixed(2)}</span>
+                <button onclick="removeFromCart(this)">Remove</button>
+            `;
+            cart.appendChild(cartItem);
+        }
+
+        function removeFromCart(button) {
+            var cartItem = button.parentElement;
+            cartItem.remove();
         }
     </script>
 
