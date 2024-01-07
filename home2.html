@@ -5,22 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Product</title>
     <style>
-        /* Previous styles remain unchanged */
-
-        .product button {
-            display: block;
-            background-color: #e44d26;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-        .product button:hover {
-            background-color: #333;
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #fff;
+            padding: 1em 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        h1 {
+            float: left;
+            margin: 0;
+        }
+
+        nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .main {
+            padding: 20px 0;
+        }
+
+        .product {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .product h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .product .price {
+            color: #e44d26;
+            font-size: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -50,17 +121,18 @@
                 <li>Digital Item</li>
                 <li>Price: <span class="price">2 KWD</span></li>
             </ul>
-            <!-- Buy Now button -->
-            <button onclick="redirectToCheckout()">Buy Now</button>
-        </div>
-    </div>
-
+              <button onclick="redirectToTapPayments()">Buy Now</button>
     <script>
-        function redirectToCheckout() {
-            // Redirect to the Tap Payments checkout page
-            window.location.href = 'checkout.html';
+        function redirectToTapPayments() {
+            // Replace the following URL with the Tap Payments checkout URL
+            var tapPaymentsUrl = 'checkout.html';
+
+            // Redirect the user to Tap Payments checkout
+            window.location.href = tapPaymentsUrl;
         }
     </script>
+        </div>
+    </div>
 
 </body>
 </html>
