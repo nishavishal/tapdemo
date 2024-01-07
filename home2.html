@@ -140,16 +140,44 @@
                 <li>Digital Item</li>
                 <li>Price: <span class="price">2 KWD</span></li>
             </ul>
-            <button onclick="redirectToTapPayments()">Buy Now</button>
-            <script>
-                function redirectToTapPayments() {
-                    // Replace the following URL with the Tap Payments checkout URL
-                    var tapPaymentsUrl = 'checkout.html';
+          <button onclick="initiateTapPayment()">Buy Now</button>
 
-                    // Redirect the user to Tap Payments checkout
-                    window.location.href = tapPaymentsUrl;
-                }
-            </script>
+<script>
+  function initiateTapPayment() {
+    // Replace the following values with your actual Tap Payments credentials and product details
+    var tapPaymentsApiUrl = 'https://api.tap.company/v2/charges/';
+    var tapPublicKey = 'pk_test_EtHFV4BuPQokJT6jiROls87Y';
+    var productName = 'Sample Product';
+    var productPrice = 2.0; // Replace with the actual price
+
+    // Prepare the data for Tap Payments API
+    var tapData = {
+      amount: productPrice,
+      currency: 'KWD',
+      // Add more relevant data as needed
+    };
+
+    // Make an AJAX request to Tap Payments API
+    fetch(tapPaymentsApiUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + tapPublicKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(tapData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the Tap Payments API response
+      console.log('Tap Payments API Response:', data);
+      // Redirect the user to the Tap Payments checkout URL
+      window.location.href = data.transaction.url;
+    })
+    .catch(error => {
+      console.error('Error initiating Tap Payments:', error);
+    });
+  }
+</script>
         </div>
     </div>
 
