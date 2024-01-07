@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,7 +42,7 @@
     <div class="container main">
         <div class="product">
             <!-- Placeholder image from Lorem Picsum -->
-            <img src="https://picsum.photos/300/200" alt="Sample Product">
+            <img src="https://pixabay.com/photos/abstract-art-background-box-1822637/" alt="Sample Product">
             <h2>Sample Product</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel elit eu risus luctus.</p>
             <p>Characteristics:</p>
@@ -51,17 +51,14 @@
                 <li>Price: <span class="price">2 KWD</span></li>
             </ul>
             <!-- Buy Now button -->
-            <button onclick="redirectToTapPayments()">Buy Now</button>
+            <button onclick="redirectToCheckout()">Buy Now</button>
         </div>
     </div>
 
     <script>
-        function redirectToTapPayments() {
-            // Replace the following URL with the Tap Payments checkout URL
-            var tapPaymentsUrl = 'https://your-tap-payments-checkout-url';
-
-            // Redirect the user to Tap Payments checkout
-            window.location.href = tapPaymentsUrl;
+        function redirectToCheckout() {
+            // Redirect to the Tap Payments checkout page
+            window.location.href = 'checkout.html';
         }
     </script>
 
